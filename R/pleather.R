@@ -15,7 +15,7 @@
 #' @param opt.time The period of time over which Synth will optimize the pre-event fit
 #' @param unit.var.name The name of the column of dat that contains the names of the units
 #' @param plot.time The period of time to be plotted by Synth
-#' @param synth.opt.method The optimization method for Synth to use - the default is All
+#' @param synth.opt.method The optimization method for Synth to use - the default is BFGS
 #' @param plot.title The title for the ggplot created by pleather
 #' @param plot.y The label for the y-axis of the ggplot
 #' @param plot.x The label for the x-axis of the ggplot
@@ -29,7 +29,7 @@
 #'
 #' @examples
 #' data(fake)
-#' boot.df <- pleather(dat = fake, treat.id = 21, iterations = 50, subsample = .5, pred.vars = c('Effort', 'Funding'), preds.op = 'mean', dep.var = 'Output', unit.var = 'ID', time.var = 'Month', pre.time = c(1:24), opt.time = c(1:24), unit.var.name = 'Name', plot.time = c(1:36), synth.opt.method = 'All', plot.title = 'Example Using Bootstapped SCM', plot.y = 'Output', plot.x = 'Month', plot.x.int = 24, treated.name = 'Michael', treated.color = 'red4', save.to = 'pleather_example_figure.png')
+#' boot.df <- pleather(dat = fake, treat.id = 21, iterations = 50, subsample = .5, pred.vars = c('Effort', 'Funding'), preds.op = 'mean', dep.var = 'Output', unit.var = 'ID', time.var = 'Month', pre.time = c(1:24), opt.time = c(1:24), unit.var.name = 'Name', plot.time = c(1:36), synth.opt.method = 'BFGS', plot.title = 'Example Using Bootstapped SCM', plot.y = 'Output', plot.x = 'Month', plot.x.int = 24, treated.name = 'Michael', treated.color = 'red4', save.to = 'pleather_example_figure.png')
 #'
 #' @export
 #' @import Synth
@@ -67,7 +67,7 @@ pleather <- function (dat, treat.id, iterations, subsample, pred.vars, preds.op,
 
     if (missing(synth.opt.method) == TRUE) {
 
-      synth.output <- synth(data.prep.obj = synth.data.prep.object)
+      synth.output <- synth(data.prep.obj = synth.data.prep.object, optimxmethod = 'BFGS')
 
     } else {
 
