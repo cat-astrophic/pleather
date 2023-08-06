@@ -1,12 +1,15 @@
 Package: pleather
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Bootstrapped Synthetic Control Method
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Michael Cary
+Maintainer: Michael Cary <macary@vt.edu>
+Description: This package bootstraps the synthetic control method using the Synth package. It creates a ggplot figure and returns a data frame of the results from the bootstrapping process.
+License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
+URL: https://github.com/cat-astrophic/pleather
+Language: en-US
+Imports: Synth, ggplot2
+
